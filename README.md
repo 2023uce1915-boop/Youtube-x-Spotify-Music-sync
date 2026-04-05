@@ -71,7 +71,6 @@ But you need to have a spotify premium for it to work or else spotify will not g
 
 ## File Structure
 
-```
 /extension
 ├── manifest.json        Chrome extension config (MV3)
 ├── popup.html           Extension popup UI
@@ -82,7 +81,6 @@ But you need to have a spotify premium for it to work or else spotify will not g
 ├── utils.js             Shared helpers (normalize, levenshtein, storage)
 ├── background.js        Service worker
 └── styles.css           Popup styles
-```
 
 ---
 
