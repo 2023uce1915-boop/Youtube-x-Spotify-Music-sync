@@ -1,6 +1,7 @@
 # YT Music → Spotify Sync — Chrome Extension
 
-Transfers your YouTube Music taste (liked songs / playlists) to a Spotify playlist automatically.
+Transfers your YouTube Music taste (liked songs / playlists) to a Spotify playlist automatically. 
+But you need to have a spotify premium for it to work or else spotify will not give access to wep api and also chrome developer dashboard charges 5 $ so u also cant add the extension their such a rip off 
 
 ---
 
