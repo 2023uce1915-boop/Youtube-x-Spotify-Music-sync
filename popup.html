@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT Music → Spotify</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">
+      <span class="logo-yt">YT</span>
+      <span class="logo-arrow">→</span>
+      <span class="logo-sp">Spotify</span>
+    </div>
+    <p class="tagline">Sync your music taste</p>
+  </div>
+
+  <div id="section-auth" class="section">
+    <div id="auth-status" class="auth-status disconnected">
+      <span class="status-dot"></span>
+      <span id="auth-label">Not connected to Spotify</span>
+    </div>
+    <button id="btn-connect" class="btn btn-primary">Connect Spotify</button>
+    <button id="btn-disconnect" class="btn btn-ghost hidden">Disconnect</button>
+    <p id="redirect-uri-msg" class="hint hidden" style="margin-top: 10px; padding: 5px; background: rgba(255,255,255,0.05); border-radius: 4px; word-break: break-all; user-select: text;">
+      Spotify Redirect URI: <br><strong id="redirect-uri-val"></strong>
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div id="section-scan" class="section">
+    <p class="section-label">Step 1 — Extract from YouTube Music</p>
+    <p class="hint">Open your <strong>Liked Songs</strong> or a <strong>Playlist</strong> on YouTube Music first.</p>
+    <button id="btn-scan" class="btn btn-secondary" disabled>Scan YouTube Music</button>
+    <div id="scan-result" class="result-box hidden">
+      <span id="scan-count">0</span> tracks found
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div id="section-settings" class="section">
+    <p class="section-label">Match threshold</p>
+    <div class="slider-row">
+      <input type="range" id="threshold-slider" min="50" max="95" value="75" step="5">
+      <span id="threshold-label">75%</span>
+    </div>
+    <p class="hint">Only songs matched above this confidence level will be added.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div id="section-sync" class="section">
+    <p class="section-label">Step 2 — Sync to Spotify</p>
+    <button id="btn-sync" class="btn btn-spotify" disabled>Sync to Spotify</button>
+
+    <div id="sync-progress" class="hidden">
+      <div class="progress-bar-wrap">
+        <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+      </div>
+      <p id="progress-label" class="progress-label">Starting...</p>
+    </div>
+
+    <div id="sync-stats" class="stats hidden">
+      <div class="stat">
+        <span class="stat-num" id="stat-matched">0</span>
+        <span class="stat-label">Matched</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-skipped">0</span>
+        <span class="stat-label">Skipped</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-errors">0</span>
+        <span class="stat-label">Errors</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="log-section" class="section hidden">
+    <p class="section-label">Log</p>
+    <div id="log-box" class="log-box"></div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- ORDER MATTERS: utils first, then spotify, then matcher, then popup -->
+  <script src="utils.js"></script>
+  <script src="spotify.js"></script>
+  <script src="matcher.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
