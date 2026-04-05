@@ -72,15 +72,15 @@ But you need to have a spotify premium for it to work or else spotify will not g
 ## File Structure
 
 /extension
-├── manifest.json        Chrome extension config (MV3)
-├── popup.html           Extension popup UI
-├── popup.js             Popup logic — orchestrates scan + sync
-├── contentScript.js     Runs on music.youtube.com — scrapes DOM
-├── spotify.js           Spotify Web API + PKCE auth
-├── matcher.js           Fuzzy matching engine with confidence scores
-├── utils.js             Shared helpers (normalize, levenshtein, storage)
-├── background.js        Service worker
-└── styles.css           Popup styles
+- manifest.json        Chrome extension config (MV3)
+- popup.html           Extension popup UI
+─ popup.js             Popup logic — orchestrates scan + sync
+─ contentScript.js     Runs on music.youtube.com — scrapes DOM
+─ spotify.js           Spotify Web API + PKCE auth
+─ matcher.js           Fuzzy matching engine with confidence scores
+-  utils.js             Shared helpers (normalize, levenshtein, storage)
+-  background.js        Service worker
+─ styles.css           Popup styles
 
 ---
 
